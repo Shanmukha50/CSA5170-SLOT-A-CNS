@@ -1,0 +1,14 @@
+import numpy
+def create_matrix_from(key):
+m=[[0] * 3 for i in range(3)] 
+for i in range(3): 
+for j in range(3): 
+m[i][j] = ord(key[3*i+j]) % 65 
+return m
+# C = P*K mod 26 
+def encrypt(P, K): 
+C=[0,0,0] 
+C[0] = (K[0][0]*P[0] + K[1][0]*P[1] + K[2][0]*P[2]) % 26 
+C[1] = (K[0][1]*P[0] + K[1][1]*P[1] + K[2][1]*P[2]) % 26 
+C[2] = (K[0][2]*P[0] + K[1][2]*P[1] + K[2][2]*P[2]) % 26 
+return C
